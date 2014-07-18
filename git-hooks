@@ -40,6 +40,10 @@ function hook_dirs
         cd $(git rev-parse --show-toplevel)
         echo "${PWD}/git_hooks${hook}"
         echo "${PWD}/.githooks${hook}"
+    else
+        cd $(git rev-parse --git-dir)
+        echo "${PWD}/git_hooks${hook}"
+        echo "${PWD}/.githooks${hook}"
     fi
     fi
     eval echo "`git config hooks.global`"${hook}
